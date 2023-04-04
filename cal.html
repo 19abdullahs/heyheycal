@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 30px;
+		}
+
+		input[type="number"] {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			margin-bottom: 10px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+			font-size: 16px;
+			width: 300px;
+			max-width: 100%;
+			box-sizing: border-box;
+		}
+
+		input[type="number"]:focus {
+			outline: none;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+		}
+
+		input[type="number"]::-webkit-outer-spin-button,
+		input[type="number"]::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		input[type="number"]::-webkit-input-placeholder {
+			color: #a9a9a9;
+		}
+
+		label {
+			font-size: 16px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		#three, #four {
+			font-size: 20px;
+			font-weight: bold;
+			margin: 10px 0;
+		}
+
+		button {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+			font-size: 16px;
+			margin-top: 20px;
+			transition: background-color 0.3s;
+			align-self: flex-end;
+		}
+
+		button:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+
+   <center>
+    <input type="number" class="one" id="one">
+    <!-- <input type="number" class="second" id="two"> -->
+    <input type="number" class="percent" id="percent" placeholder="percent">
+    <div>
+        <label for="">Others</label>
+        <p id="three">0</p>
+        <label for="">Yours</label>
+        <p id="four"></p>
+    </div>
+    <button onclick="abdullah()">Save</button>
+
+
+
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="number" id="eno">
+    <input type="number" id="owt">
+    <select name="Sign" id="Sign">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">X</option>
+        <option value="/">/</option>
+    </select>
+
+    <p id="ressthree"></p>
+    <br>
+    <button onclick="btnthre()">save</button>
+</center>
+    <style>
+        #four {
+            white-space: nowrap;
+        }
+    </style>
+    
+    <script>
+        function abdullah() {
+            var one = parseInt(document.getElementById("one").value);
+            // var two = parseInt(document.getElementById("two").value);
+            var percent = parseInt(document.getElementById("percent").value);
+            var three = document.getElementById("three");
+            var four = document.getElementById("four");
+
+            var onee = document.getElementById("onee");
+            var twoo = document.getElementById("twoo");
+
+
+    
+            if (three.innerHTML === "0" || three.innerHTML === "") {
+                var res = one;
+            } else {
+                var res =  Math.abs(Math.floor(percent / 100 * one));
+            }
+    
+            three.innerHTML = res;
+            var restwo = res - one;
+    
+            if (restwo < 0) {
+                four.innerHTML = Math.abs(Math.floor(restwo));
+            } else {
+                four.innerHTML = restwo;
+            }
+        }
+
+        function btnthre(){
+             var Sign = document.getElementById("Sign").value;
+    var eno = parseInt(document.getElementById("eno").value);
+    var owt = parseInt(document.getElementById("owt").value);
+    var ressthree = document.getElementById("ressthree");
+
+    if(Sign === "+"){
+        ressthree.innerHTML = eno + owt;
+    }
+    else if(Sign === "-"){
+        ressthree.innerHTML = eno - owt;
+    }
+    else if(Sign === "*"){
+        ressthree.innerHTML = eno * owt;
+    }
+    else if(Sign === "/"){
+        ressthree.innerHTML = eno / owt;
+    }
+ 
+
+
+}
+    </script>
+    
+
+    
+
+    
+</body>
+</html>
